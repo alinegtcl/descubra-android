@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Descubra" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Descubra" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">@color/descubra_primary</item>
+        <item name="android:navigationBarColor">@color/descubra_background</item>
+        <item name="android:statusBarColor">@color/descubra_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Theme.Descubra.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/descubra_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.Descubra</item>
+    </style>
+
 </resources>
