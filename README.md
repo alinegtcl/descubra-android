@@ -92,7 +92,7 @@ O projeto utiliza:
 
 O projeto foi preparado e validado em:
 
-* macOS 15.6.1
+* macOS 26.6.2
 * Apple Silicon (M2)
 
 O projeto utiliza ferramentas e bibliotecas multiplataforma e também poderá ser executado em Windows ou Linux, desde que o ambiente seja compatível com as versões especificadas acima.
