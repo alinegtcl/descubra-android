@@ -6,11 +6,19 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.ifsp.descubra.data.remote.WikipediaServiceImpl
+import com.ifsp.descubra.data.repository.ArticleRepositoryImpl
 import com.ifsp.descubra.presentation.theme.DescubraTheme
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel : DescubraViewModel by viewModels()
+    private val viewModel : DescubraViewModel by viewModels {
+        DescubraViewModelFactory(
+            articleRepository = ArticleRepositoryImpl(
+                wikipediaService = WikipediaServiceImpl()
+            )
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
