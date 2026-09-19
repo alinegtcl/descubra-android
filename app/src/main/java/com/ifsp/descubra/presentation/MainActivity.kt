@@ -1,4 +1,4 @@
-package com.ifsp.descubra
+package com.ifsp.descubra.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.ifsp.descubra.ui.theme.DescubraTheme
+import com.ifsp.descubra.presentation.theme.DescubraTheme
 
 class MainActivity : ComponentActivity() {
 

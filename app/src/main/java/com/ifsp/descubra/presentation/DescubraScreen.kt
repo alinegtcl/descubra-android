@@ -1,4 +1,4 @@
-package com.ifsp.descubra
+package com.ifsp.descubra.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -31,7 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ifsp.descubra.ui.theme.DescubraTheme
+import com.ifsp.descubra.presentation.theme.DescubraTheme
 
 @Composable
 fun DescubraScreen(

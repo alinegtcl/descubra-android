@@ -1,36 +1,16 @@
-package com.ifsp.descubra
+package com.ifsp.descubra.presentation
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.ifsp.descubra.data.remote.WikipediaServiceImpl
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class DescubraViewModel : ViewModel() {
-    private val wikipediaApi = Retrofit.Builder()
-        .baseUrl("https://pt.wikipedia.org/api/rest_v1/")
-        .client(
-            OkHttpClient.Builder()
-                .addInterceptor { chain ->
-                    val request = chain.request()
-                        .newBuilder()
-                        .header(
-                            "User-Agent",
-                            "DescubraAndroid/1.0 (https://github.com/alinegtcl/descubra-android)"
-                        )
-                        .build()
 
-                    chain.proceed(request)
-                }
-                .build()
-        )
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-        .create(WikipediaApi::class.java)
+    private val wikipediaService = WikipediaServiceImpl()
 
     var articleTitle by mutableStateOf<String?>(null)
     var articleDescription by mutableStateOf<String?>(null)
@@ -45,7 +25,7 @@ class DescubraViewModel : ViewModel() {
             articleDescription = null
 
             try {
-                val response = wikipediaApi.getRandomArticle()
+                val response = wikipediaService.getRandomArticle()
 
                 articleTitle = response.title
                 articleDescription = response.extract
