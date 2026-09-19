@@ -5,15 +5,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ifsp.descubra.data.remote.WikipediaServiceImpl
-import com.ifsp.descubra.data.repository.ArticleRepositoryImpl
+import com.ifsp.descubra.data.repository.ArticleRepository
 import kotlinx.coroutines.launch
 
-class DescubraViewModel : ViewModel() {
-
-    private val articleRepository = ArticleRepositoryImpl(
-        wikipediaService = WikipediaServiceImpl()
-    )
+class DescubraViewModel(
+    private val articleRepository: ArticleRepository
+) : ViewModel() {
 
     var articleTitle by mutableStateOf<String?>(null)
     var articleDescription by mutableStateOf<String?>(null)
