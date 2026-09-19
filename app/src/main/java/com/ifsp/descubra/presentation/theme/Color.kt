@@ -1,4 +1,4 @@
-package com.ifsp.descubra.ui.theme
+package com.ifsp.descubra.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
