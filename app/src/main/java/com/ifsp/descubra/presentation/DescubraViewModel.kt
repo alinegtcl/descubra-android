@@ -6,11 +6,14 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ifsp.descubra.data.remote.WikipediaServiceImpl
+import com.ifsp.descubra.data.repository.ArticleRepositoryImpl
 import kotlinx.coroutines.launch
 
 class DescubraViewModel : ViewModel() {
 
-    private val wikipediaService = WikipediaServiceImpl()
+    private val articleRepository = ArticleRepositoryImpl(
+        wikipediaService = WikipediaServiceImpl()
+    )
 
     var articleTitle by mutableStateOf<String?>(null)
     var articleDescription by mutableStateOf<String?>(null)
@@ -25,7 +28,7 @@ class DescubraViewModel : ViewModel() {
             articleDescription = null
 
             try {
-                val response = wikipediaService.getRandomArticle()
+                val response = articleRepository.getRandomArticle()
 
                 articleTitle = response.title
                 articleDescription = response.extract
