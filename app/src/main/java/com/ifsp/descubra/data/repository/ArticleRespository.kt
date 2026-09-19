@@ -1,8 +1,8 @@
 package com.ifsp.descubra.data.repository
 
-import com.ifsp.descubra.data.remote.WikipediaResponse
+import com.ifsp.descubra.domain.model.Article
 
 interface ArticleRepository {
 
-    suspend fun getRandomArticle(): WikipediaResponse
+    suspend fun getRandomArticle(): Article
 }

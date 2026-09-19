@@ -31,7 +31,7 @@ class DescubraViewModel : ViewModel() {
                 val response = articleRepository.getRandomArticle()
 
                 articleTitle = response.title
-                articleDescription = response.extract
+                articleDescription = response.description
 
             } catch (exception: Exception) {
                 errorMessage = "Não foi possível descobrir algo novo. Tente novamente."
