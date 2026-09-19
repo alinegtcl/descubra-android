@@ -1,4 +1,4 @@
-package com.ifsp.descubra
+package com.ifsp.descubra.data.remote
 
 import com.google.gson.annotations.SerializedName
 
