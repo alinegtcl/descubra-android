@@ -4,6 +4,7 @@ import com.ifsp.descubra.MainDispatcherRule
 import com.ifsp.descubra.data.repository.ArticleRepository
 import com.ifsp.descubra.domain.model.Article
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -43,6 +44,10 @@ class DescubraViewModelTest {
 
         advanceUntilIdle()
 
+        coVerify(exactly = 1) {
+            articleRepository.getRandomArticle()
+        }
+
         assertEquals(
             "Android",
             viewModel.articleTitle
@@ -66,6 +71,10 @@ class DescubraViewModelTest {
         viewModel.discoverArticle()
 
         advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            articleRepository.getRandomArticle()
+        }
 
         assertEquals(
             "Não foi possível descobrir algo novo. Tente novamente.",
