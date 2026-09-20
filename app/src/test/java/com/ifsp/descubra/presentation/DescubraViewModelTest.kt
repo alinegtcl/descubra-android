@@ -81,6 +81,8 @@ class DescubraViewModelTest {
             viewModel.errorMessage
         )
 
+        assertNull(viewModel.articleTitle)
+        assertNull(viewModel.articleDescription)
         assertFalse(viewModel.isLoading)
     }
 }
